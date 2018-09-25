@@ -47,7 +47,9 @@ for (var channel of channels_conf) {
 const bot = new irc.Client(nconf.get('server'), nconf.get('bot_name'), {
     userName: nconf.get('bot_user'),
     realName: nconf.get('bot_real'),
-    encoding: "utf-8"
+    encoding: "utf-8",
+    floodProtection: false,
+    floodProtectionDelay: 500
 });
 
 bot.addListener("error", function(message) {
